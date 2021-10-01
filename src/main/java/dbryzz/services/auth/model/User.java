@@ -11,7 +11,6 @@ import java.util.HashSet;
 import java.util.Set;
 
 @Entity(name = "user_tbl")
-@Data
 public class User {
 
     @Id

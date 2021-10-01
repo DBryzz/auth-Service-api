@@ -1,13 +1,11 @@
 package dbryzz.services.auth.model;
 
 import dbryzz.services.auth.model.audit.DateAudit;
-import lombok.Data;
 import org.hibernate.annotations.NaturalId;
 
 import javax.persistence.*;
 import java.time.Instant;
 
-@Data
 @Entity(name = "refresh_token_tbl")
 public class RefreshToken extends DateAudit {
 
@@ -30,4 +28,59 @@ public class RefreshToken extends DateAudit {
 
     @Column(name = "expiry_date", nullable = false)
     private Instant expiryDate;
+
+    public RefreshToken() {
+    }
+
+    public RefreshToken(Long id, String token, UserDevice userDevice, Long refreshCount, Instant expiryDate) {
+        this.id = id;
+        this.token = token;
+        this.userDevice = userDevice;
+        this.refreshCount = refreshCount;
+        this.expiryDate = expiryDate;
+    }
+
+    public void incrementRefreshCount() {
+        refreshCount = refreshCount + 1;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getToken() {
+        return token;
+    }
+
+    public void setToken(String token) {
+        this.token = token;
+    }
+
+    public UserDevice getUserDevice() {
+        return userDevice;
+    }
+
+    public void setUserDevice(UserDevice userDevice) {
+        this.userDevice = userDevice;
+    }
+
+    public Instant getExpiryDate() {
+        return expiryDate;
+    }
+
+    public void setExpiryDate(Instant expiryDate) {
+        this.expiryDate = expiryDate;
+    }
+
+    public Long getRefreshCount() {
+        return refreshCount;
+    }
+
+    public void setRefreshCount(Long refreshCount) {
+        this.refreshCount = refreshCount;
+    }
 }

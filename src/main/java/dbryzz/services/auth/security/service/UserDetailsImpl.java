@@ -4,11 +4,13 @@ import dbryzz.services.auth.model.User;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.stereotype.Service;
 
 import java.util.Collection;
 import java.util.Objects;
 import java.util.stream.Collectors;
 
+@Service
 public class UserDetailsImpl extends User implements UserDetails {
 
     public UserDetailsImpl(final User user) {
