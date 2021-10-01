@@ -1,5 +1,6 @@
 package dbryzz.services.auth.cache;
 
+import dbryzz.services.auth.event.OnUserLogoutSuccessEvent;
 import dbryzz.services.auth.security.jwt.JwtTokenProviderUtil;
 import net.jodah.expiringmap.ExpiringMap;
 import org.apache.log4j.Logger;

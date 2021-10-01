@@ -1,13 +1,15 @@
 package dbryzz.services.auth.security.jwt;
 
 import dbryzz.services.auth.cache.LoggedOutJwtTokenCache;
+import dbryzz.services.auth.event.OnUserLogoutSuccessEvent;
 import dbryzz.services.auth.exception.InvalidTokenRequestException;
-import io.jsonwebtoken.Jwts;
-import io.jsonwebtoken.SignatureException;
+import io.jsonwebtoken.*;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
+
+import java.util.Date;
 
 @Component
 public class JwtTokenValidator {
