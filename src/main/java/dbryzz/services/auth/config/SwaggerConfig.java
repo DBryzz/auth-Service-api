@@ -8,6 +8,7 @@ import springfox.documentation.builders.ParameterBuilder;
 import springfox.documentation.builders.RequestHandlerSelectors;
 import springfox.documentation.schema.ModelRef;
 import springfox.documentation.service.ApiInfo;
+import springfox.documentation.service.Contact;
 import springfox.documentation.spi.DocumentationType;
 import springfox.documentation.spring.web.plugins.Docket;
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
@@ -47,6 +48,7 @@ public class SwaggerConfig {
 
     private ApiInfo metaInfo() {
         return new ApiInfoBuilder()
+                .contact(new Contact("Domou Brice", "github.com/DBryzz", "domoubrice@gmail.com"))
                 .description("API Security - API for authentication of users")
                 .title("DBryzz API Security")
                 .version("v [1.0]")

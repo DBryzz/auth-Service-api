@@ -10,7 +10,7 @@ import java.util.Collection;
 import java.util.Objects;
 import java.util.stream.Collectors;
 
-@Service
+//@Service
 public class UserDetailsImpl extends User implements UserDetails {
 
     public UserDetailsImpl(final User user) {

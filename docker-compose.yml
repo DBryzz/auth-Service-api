@@ -1,0 +1,50 @@
+version: '3.7'
+
+networks:
+  auth_network:
+    driver: bridge
+
+services:
+
+  # TOMCAT- Service
+  api-security:
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    container_name: api-security
+
+    ports:
+      - "8080:8080"
+
+    volumes:
+      - ./:/var/www/html
+
+    depends_on:
+      - mysqldb
+
+    networks:
+      - auth_network
+
+
+  # MYSQL – Service
+  mysqldb:
+    image: mysql:8
+    container_name: auth_api_db
+    restart: unless-stopped
+
+    ports:
+      - "4306:3306"
+
+    volumes:
+      - ./mysql:/var/lib/mysql
+
+    environment:
+      MYSQL_DATABASE: auth_api_db
+      MYSQL_USER: root
+      MYSQL_PASSWORD: mysql
+      MYSQL_ROOT_PASSWORD: mysql
+      SERVICE_TAGS: dev
+      SERVICE_NAME: mysql
+
+    networks:
+      - auth_network

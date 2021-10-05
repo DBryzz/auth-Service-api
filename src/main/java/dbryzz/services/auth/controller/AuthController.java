@@ -37,9 +37,9 @@ public class AuthController {
     private final JwtTokenProviderUtil tokenProvider;
     private final ApplicationEventPublisher applicationEventPublisher;
 
-    @Value("${ui.register.user}")
+//    @Value("${ui.register.user}")
     private String registrationURL;
-    @Value("${ui.reset.password.user}")
+//    @Value("${ui.reset.password.user}")
     private String resetPasswordURL;
 
     @Autowired

@@ -91,7 +91,9 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                         "/**/*.jpeg",
                         "/**/*.html",
                         "/**/*.css",
-                        "/**/*.js").permitAll()
+                        "/**/*.js",
+                        "/swagger-ui.html/**",
+                        "/h2-console/**").permitAll()
                 .antMatchers("/**/api/auth/**").permitAll()
                 .anyRequest().authenticated();
 

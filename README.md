@@ -1,4 +1,7 @@
-## About Auh-Service-API
+
+# Auth-Service-API
+
+## About Auth-Service-API
 
 Just as the name suggest, Auth-Service-API is a REST API that provides authentication and authorization services. 
 A user may create an account, login to his/her account, change password, reset password using email. 
@@ -6,9 +9,34 @@ A user may create an account, login to his/her account, change password, reset p
 ## Technologies
 - Springboot
 - MySQL
-- Docker
+- 3Docker
+- Intelli J Idea
 
 ## Running the application
+
+There are a number of ways one could run the application including
+1 - Using intelliJ. 
+2 - Building the application into a jar file and then executing it. 
+3 - Usage of docker and docker-compose
+
+### Creating executable
+ From the root directory build the project using the command  
+ **./mvnw clean package -DskipTests**.
+ spring-boot:run spring-boot:repackage spring-boot:build-image package
+### Run using IntelliJ Idea
+1 - Clone the repository and checkout to master or download master branch.
+2 - Open application with intelliJ and move to the root directory (auth-service-api)
+3 - Install all dependencies by running **mvn clean install**
+4 - Select profile to run (test, dev or prod) by changing setting in application.properties
+**spring.profiles.active=test** or **spring.profiles.active=dev** or **spring.profiles.active=prod**
+Test uses h2, dev uses mysql docker image while prod uses MySQL
+5 - Run application by pressing run icon or by using the key combination **shift + F10**
+
+
+## Using Executable.
+1 - Build the application as described above
+2 - Run executable using the command 
+**java -jar target/
 
 1 - Clone the repository and checkout branch to-do or download to-do branch.
 
@@ -38,10 +66,9 @@ DB_PASSWORD=secret</i>
 
 7 - Access application at localhost:8088 </br><br/>
 
-## Running Migrations.
-
-1 - Run services as described above
-
-2 - Run docker-compose exec command on php container
-
-<i>docker-compose exec php /var/www/html/artisan migrate</i>
+## Running the code
+  
+    - Create the docker image using the command
+      **sudo docker build -t auto-grader .**
+    - Start the application using the command
+      **sudo docker-compose up**

@@ -44,7 +44,7 @@ public class MailServiceImpl implements MailService {
     public void sendEmailVerification(String emailVerificationUrl, String to)
             throws IOException, TemplateException, MessagingException {
         MailDTO mail = new MailDTO();
-        mail.setSubject("Email Verification [FET AUTO-GRADER]");
+        mail.setSubject("Email Verification [API Security]");
         mail.setTo(to);
         mail.setFrom(mailFrom);
         mail.getModel().put("userName", to);
